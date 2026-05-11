@@ -186,14 +186,15 @@
       text-align:right;
     }
     /* подсветка уровней */
-    .layer-item.active {
+    .layer-item:hover {
       background: linear-gradient(135deg, #FFB347, #FF8C42);
       color: #1E2A2F;
       border-left-color: #FFE484;
+      border-right-color: #FFE484;
       box-shadow: 0 0 10px #ffb347aa;
       transform: scale(1.01);
     }
-    .layer-item.active .layer-num {
+    .layer-item.layer-num:hover {
       background: #2A1E0F;
       color: #FFD966;
     }
