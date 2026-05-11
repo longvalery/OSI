@@ -156,6 +156,7 @@
       gap: 12px;
       transition: all 0.2s ease;
       border-left: 6px solid #3b8db0;
+      border-right: 6px solid #3b8db0;
       -webkit-backdrop-filter: blur(4px);
       backdrop-filter: blur(4px);
       font-weight: bold;
@@ -324,6 +325,7 @@
     const startBtn = document.getElementById('startBtn');
     const statusDiv = document.getElementById('statusMsg');
     const animationTimeout = 1800;
+    const animationLevelTimeout = 600;
 
 
     // ---------- Данные уровней OSI (от 7 к 1) ----------
@@ -577,7 +579,7 @@
         // обновляем статус
         const layer = layersData[idx];
         if (computerType === 'sender') {
-          statusDiv.innerHTML = `📤 Компьютер A: уровень ${layer.num} — ${layer.name} (упаковка данных)`;
+          statusDiv.innerHTML = `📤 Твой компьютер: уровень ${layer.num} — ${layer.name} (упаковка данных)`;
         } 
         else 
         {
@@ -585,12 +587,12 @@
             if (step < 2) {statusDiv.innerHTML = `📤🌐 Маршрутизатор: уровень ${layer.num} — ${layer.name} (распаковка данных)`}
             else { statusDiv.innerHTML = `📥🌐 Маршрутизатор: уровень ${layer.num} — ${layer.name} (упаковка данных)`;}
                                          }
-          else { statusDiv.innerHTML = `📥 Компьютер B: уровень ${layer.num} — ${layer.name} (распаковка данных)`; }
+          else { statusDiv.innerHTML = `📥 Сервер: уровень ${layer.num} — ${layer.name} (распаковка данных)`; }
         }
         const tid = setTimeout(() => {
           step++;
           nextHighlight();
-        }, 600);
+        }, animationLevelTimeout);
         activeTimeouts.push(tid);
       }
       nextHighlight();
